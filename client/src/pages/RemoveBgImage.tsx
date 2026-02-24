@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import imglyRemoveBackground from '@imgly/background-removal';
+import { removeBackground } from '@imgly/background-removal';
 import UploadZone from '../components/UploadZone';
 import { Loader2, Download, Wand2, RefreshCcw } from 'lucide-react';
 
@@ -25,7 +25,7 @@ const RemoveBgImage = () => {
     setProgress('Loading AI models...');
 
     try {
-      const blob = await imglyRemoveBackground(file, {
+      const blob = await removeBackground(file, {
         progress: (key: string, current: number, total: number) => {
              // Simple progress tracking
              const percent = Math.round((current / total) * 100);
